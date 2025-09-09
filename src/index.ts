@@ -43,18 +43,22 @@ app.get("/success", async (c) => {
   return c.html("<h1>Successful Registration.</h1>");
 });
 
-app.get("/register", async (c) => {
+app.get("/register/:name", async (c) => {
+  const name = c.req.param("name");
   try {
     const { user } = await auth.api.signUpEmail({
       body: {
-        email: "hey@gmail.com",
-        name: "Hey One",
-        password: "heyheyhey",
+        email: `${name}@gmail.com`,
+        name: `$name`,
+        password: `${name}${name}@123`,
         rememberMe: true,
       },
     });
     if (user) {
-      return c.json(user);
+      return c.json({
+        Registered: true,
+        Name: user.name,
+      });
     } else {
       return c.json({
         error: "Not Registered...",
