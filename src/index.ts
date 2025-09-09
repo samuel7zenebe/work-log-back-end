@@ -47,9 +47,9 @@ app.get("/register", async (c) => {
   try {
     const { user } = await auth.api.signUpEmail({
       body: {
-        email: "someone@gmail.com",
-        name: "Some One",
-        password: "someonesomeone",
+        email: "hey@gmail.com",
+        name: "Hey One",
+        password: "heyheyhey",
         rememberMe: true,
       },
     });
