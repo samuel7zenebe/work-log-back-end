@@ -9,7 +9,7 @@ import { auth } from "./lib/auth";
 const app = new Hono();
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://work-log-back-end.onrender.com",
+  "https://vercel-with-neon-postgres-indol-chi.vercel.app",
 ];
 app.use(
   "*",
