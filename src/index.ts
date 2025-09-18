@@ -19,10 +19,12 @@ app.use(
         ? allowedOrigins[1]
         : allowedOrigins[0],
     allowHeaders: ["Content-Type", "Authorization"],
-    allowMethods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"],
+    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Explicitly allow POST for auth
     credentials: true,
   })
 );
+
+
 app.use(logger());
 
 app.on(["POST", "GET"], "/api/auth/*", (c) => auth.handler(c.req.raw));
